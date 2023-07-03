@@ -21,3 +21,10 @@ Can you analyse the following data to find out all about the tournament?
 Scenario:
 You are a Customer Insights Analyst for 'The General Store'
 Can you analyse the following tables to find out crucial information about your customers to provide to your marketing team?
+
+
+# Challenge 4 - Finance Analysis
+
+Scenario:
+You are a Finance Analyst working for 'The Big Bank'
+You have been tasked with finding out about your customers and their banking behaviour. Examine the accounts they hold and the type of transactions they make to develop greater insight into your customers.
