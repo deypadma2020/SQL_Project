@@ -35,3 +35,10 @@ You have been tasked with finding out about your customers and their banking beh
 Scenario:
 You are a Pricing Analyst working for a pub chain called 'Pubs "R" Us'
 You have been tasked with analysing the drinks prices and sales to gain a greater insight into how the pubs in your chain are performing.
+
+
+# Challenge 6 - Marketing Analysis
+
+Scenario:
+You are a Marketing Analyst
+The 'Sustainable Clothing Co.' have been running several marketing campaigns and have asked you to provide your insight into whether they have been successful or not. Analyse the following data and answer the questions to form your answer.
