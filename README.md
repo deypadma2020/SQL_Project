@@ -1,4 +1,4 @@
-# SQL_Project: -
+# SQL Case Studies: -
 
 Here, I have analyzed the data and provided a solution using MySQL queries based on the case studies organized by Steel Data and Matthew Steel.
 
