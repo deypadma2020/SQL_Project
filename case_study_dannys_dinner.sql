@@ -85,7 +85,7 @@ order by count(distinct(s.order_date)) desc;
  3. What was the first item from the menu purchased by each customer?
 */
 with purchase_rank as (
-						select s.customer_id, s.order_date, m.product_name, dense_rank() over (partition by s.customer_id order by s.order_date) as purchase_order
+			select s.customer_id, s.order_date, m.product_name, dense_rank() over (partition by s.customer_id order by s.order_date) as purchase_order
                         from sales as s
                         inner join menu as m on s.product_id = m.product_id
                         )
@@ -109,7 +109,7 @@ order by count(s.product_id) desc limit 1;
  5. Which item was the most popular for each customer?
 */
 with popular_rank as (
-						select s.customer_id, m.product_name, count(s.product_id) as no_of_orders, 
+			select s.customer_id, m.product_name, count(s.product_id) as no_of_orders, 
                         dense_rank() over (partition by s.customer_id order by count(s.product_id) desc) as "rank"
                         from sales as s
                         inner join menu as m on s.product_id = m.product_id
@@ -124,7 +124,7 @@ where pr.rank = 1;
  6. Which item was purchased first by the customer after they became a member?
 */
 with became_member as(
-						select s.customer_id, m.product_name, s.order_date, me.join_date,
+			select s.customer_id, m.product_name, s.order_date, me.join_date,
                         dense_rank() over (partition by s.customer_id order by s.order_date) as "rank"
                         from sales as s
                         inner join menu as m on s.product_id = m.product_id
@@ -140,7 +140,7 @@ where bm.rank =1;
  7. Which item was purchased just before the customer became a member?
 */
 with became_member as(
-						select s.customer_id, m.product_name, s.order_date, me.join_date,
+			select s.customer_id, m.product_name, s.order_date, me.join_date,
                         dense_rank() over (partition by s.customer_id order by s.order_date desc) as "rank"
                         from sales as s
                         inner join menu as m on s.product_id = m.product_id
@@ -167,16 +167,16 @@ group by s.customer_id;
  9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 */
 select s.customer_id as "Customer ID", sum(case
-												when m.product_name = "sushi" then m.price * 20
-												else m.price * 10
-										   end) as "Total Points"
+						when m.product_name = "sushi" then m.price * 20
+						else m.price * 10
+					   end) as "Total Points"
 from sales as s
 inner join menu as m on s.product_id = m.product_id
 group by s.customer_id
 order by sum(case
-				when m.product_name = "sushi" then m.price * 20
-				else m.price * 10
-			 end) desc;
+		when m.product_name = "sushi" then m.price * 20
+		else m.price * 10
+	     end) desc;
             
 -------------------------------------------------------------------------------------
 /*
@@ -184,8 +184,8 @@ order by sum(case
 not just sushi - how many points do customer A and B have at the end of January?
 */
 select s.customer_id as "Customer ID", sum(case
-											 when s.order_date >= me.join_date and s.order_date <= date_add(me.join_date, interval 1 week) then m.price * 2
-                                             else m.price
+						when s.order_date >= me.join_date and s.order_date <= date_add(me.join_date, interval 1 week) then m.price * 2
+                                             	else m.price
                                             end) as "Points Earned", s.order_date
 from sales as s
 inner join menu as m on s.product_id = m.product_id
@@ -193,9 +193,9 @@ left join members as me on s.customer_id = me.customer_id
 where s.order_date >= "2021-01-01" and order_date <= "2021-01-31"
 group by s.customer_id
 order by sum(case
-				when s.order_date >= me.join_date and s.order_date <= date_add(me.join_date, interval 1 week) then m.price * 2
-				else m.price
-			end) desc;
+		when s.order_date >= me.join_date and s.order_date <= date_add(me.join_date, interval 1 week) then m.price * 2
+		else m.price
+	     end) desc;
 
 ---------------------------------------------------------------------------------------
 /*
@@ -205,7 +205,7 @@ without needing to join the underlying tables using SQL.
 */
 select s.customer_id as "Customer ID", s.order_date as "Order Date", m.product_name as "Product Name", m.price as "Price",
 case
-	when s.order_date >= me.join_date then "Y"
+    when s.order_date >= me.join_date then "Y"
     else "N"
 end as "Member"
 from sales as s
@@ -220,18 +220,18 @@ but he purposely does not need the ranking for non-member purchases
 so he expects null ranking values for the records when customers are not yet part of the loyalty program.
 */
 with all_together as(
-select s.customer_id, s.order_date, m.product_name, m.price,
-case
-	when s.order_date >= me.join_date then "Y"
-    else "N"
-end as member
-from sales as s
-inner join menu as m on s.product_id = m.product_id
-left join members as me on s.customer_id = me.customer_id
-)
+			select s.customer_id, s.order_date, m.product_name, m.price,
+			case
+    			    when s.order_date >= me.join_date then "Y"
+    			    else "N"
+			end as member
+			from sales as s
+			inner join menu as m on s.product_id = m.product_id
+			left join members as me on s.customer_id = me.customer_id
+			)
 select at.customer_id as "Customer ID", at.order_date "Order Date", at.product_name "Product Name", at.price as "Price",
 case
-	when member = "N" then null
+    when member = "N" then null
     else rank() over (partition by at.customer_id, at.member order by at.order_date)
 end as "Ranking"
 from all_together as at;
