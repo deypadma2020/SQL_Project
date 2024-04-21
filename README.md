@@ -108,3 +108,29 @@ This case study has LOTS of questions - they are broken up by area of focus incl
     - Ingredient Optimisation
     - Pricing and Ratings
     - Bonus DML Challenges (DML = Data Manipulation Language)
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
+
+# (C) Here, I have analyzed the data and provided a solution using MySQL queries based on the case studies organized by Data In Motion.
+
+# SQL Case Study 2 - Human Resources
+
+Introduction:
+
+In a dynamic corporate environment, managing departments, employees, and projects efficiently is essential for organizational success. The provided SQL schema represents a typical company structure with departments managed by dedicated individuals, employees engaged in various roles, and projects driving departmental objectives. Leveraging this data, we aim to address pertinent challenges to enhance operational effectiveness and employee management.
+
+Problem Statement:
+
+Within this corporate framework, we encounter several key challenges. 
+
+    - Firstly, identifying the longest ongoing project in each department is crucial for resource allocation and project prioritization. 
+    - Secondly, delineating employees who are not managers facilitates targeted management strategies and career progression plans. 
+    - Thirdly, pinpointing employees hired after project commencement within their department assists in assessing recruitment efficiency and project alignment. 
+    - Additionally, ranking employees based on hire dates enables fair performance evaluations and career trajectory planning. 
+    - Lastly, computing the duration between consecutive employee hires within departments sheds light on workforce dynamics and succession planning opportunities. 
+    
+Through comprehensive analysis and strategic insights derived from SQL queries, we aim to address these challenges effectively, fostering organizational excellence and employee satisfaction.
+
+------------------------------------------------------------------------------------------------
