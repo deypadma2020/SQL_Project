@@ -115,6 +115,31 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 
 # (C) Here, I have analyzed the data and provided a solution using MySQL queries based on the case studies organized by Data In Motion.
 
+# SQL Case Study 1 - Tiny Shop Sales(Customer Order Analysis)
+
+Introduction:
+
+In this case study, we are analyzing the sales data of a retail company. The database consists of four primary tables: customers, products, orders, and order_items. These tables store detailed information about customers, the products they purchase, their orders, and the specific items within those orders. Our goal is to extract meaningful insights and answer specific business questions using SQL queries. The data spans across multiple orders made by customers over time, involving various products with different prices.
+
+Problem Statement:
+
+Within this corporate framework, we encounter several key challenges. 
+
+    - Identify the product with the highest price. 
+    - Determine the customer who has made the most orders.
+    - Calculate the total revenue per product. 
+    - Find the day with the highest revenue.
+    - Identify the first order for each customer.
+    - Identify the top 3 customers who have ordered the most distinct products.
+    - Find the least purchased product in terms of quantity.
+    - Calculate the median order total.
+    - Classify each order based on its total value.
+    - Identify customers who have ordered the product with the highest price.
+    
+By addressing these key business questions, the retail company can gain valuable insights into product performance, customer behavior, and sales trends, enabling more informed strategic decisions and improved business outcomes.
+
+------------------------------------------------------------------------------------------------
+
 # SQL Case Study 2 - Human Resources
 
 Introduction:
