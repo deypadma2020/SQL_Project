@@ -1,4 +1,4 @@
-create database if not exists Challenge_4;
+create database if not exists finance;
 
 use Challenge_4;
 

@@ -1,4 +1,4 @@
-create database if not exists Challenge_2;
+create database if not exists esports_tournament;
 
 use Challenge_2;
 

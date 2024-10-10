@@ -1,4 +1,4 @@
-create database if not exists Challenge_6;
+create database if not exists marketing;
 
 use Challenge_6;
 

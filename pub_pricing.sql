@@ -1,4 +1,4 @@
-create database if not exists Challenge_5;
+create database if not exists pub_pricing;
 
 use Challenge_5;
 

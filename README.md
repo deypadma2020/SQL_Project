@@ -2,7 +2,7 @@
 
 # (A) Here, I have analyzed the data and provided a solution using MySQL queries based on the case studies organized by Steel Data and Matthew Steel.
 
-# Challenge 1 - Steve's Car Showroom
+# Steve's Car Showroom
 
 Scenario:
 
@@ -11,7 +11,7 @@ Can you analyse the following data to provide him with all the answers he requir
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-# Challenge 2 - Esports Tournament
+# Esports Tournament
 
 Scenario:
 
@@ -20,7 +20,7 @@ Can you analyse the following data to find out all about the tournament?
 
 -------------------------------------------------------------------------------------------------------------------------------
 
-# Challenge 3 - Customer Insights
+# Customer Insights
 
 Scenario:
 
@@ -29,7 +29,7 @@ Can you analyse the following tables to find out crucial information about your 
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-# Challenge 4 - Finance Analysis
+# Finance Analysis
 
 Scenario:
 
@@ -38,7 +38,7 @@ You have been tasked with finding out about your customers and their banking beh
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-# Challenge 5 - Pub pricing analysis
+# Pub pricing analysis
 
 Scenario:
 
@@ -47,7 +47,7 @@ You have been tasked with analysing the drinks prices and sales to gain a greate
 
 -----------------------------------------------------------------------------------------------------------------------------------
 
-# Challenge 6 - Marketing Analysis
+# Marketing Analysis
 
 Scenario:
 
@@ -59,7 +59,9 @@ The 'Sustainable Clothing Co.' have been running several marketing campaigns and
 
 # (B) Here, I have analyzed the data and provided a solution using MySQL queries based on the case studies organized by Danny Ma.
 
-# Challenge 1 - Danny's Dinner
+# Danny's Dinner
+
+![1](https://github.com/user-attachments/assets/c94bb078-7b39-431d-bf06-6b022bd00ec9)
 
 Introduction:
 
@@ -83,7 +85,9 @@ members.
 
 ------------------------------------------------------------------------------------------------
 
-# Challenge 2 - Pizza Runner
+# Pizza Runner
+
+![2](https://github.com/user-attachments/assets/51ae7e47-4ffb-446c-8dee-cb94a5a7f958)
 
 Introduction:
 
@@ -109,13 +113,38 @@ This case study has LOTS of questions - they are broken up by area of focus incl
     - Pricing and Ratings
     - Bonus DML Challenges (DML = Data Manipulation Language)
 
+------------------------------------------------------------------------------------------------
 
+# Foodie-fi
+
+https://8weeksqlchallenge.com/images/case-study-designs/3.png
+
+Introduction:
+
+Subscription based businesses are super popular and Danny realised that there was a large gap in the market - he wanted to create a new streaming service that only had food related content - something like Netflix but with only cooking shows!
+
+Danny finds a few smart friends to launch his new startup Foodie-Fi in 2020 and started selling monthly and annual subscriptions, giving their customers unlimited on-demand access to exclusive food videos from around the world!
+
+Danny created Foodie-Fi with a data driven mindset and wanted to ensure all future investment decisions and new features were decided using data. This case study focuses on using subscription style digital data to answer important business questions.
+
+Problem Statement:
+
+Problem Statement: In a rapidly growing market of subscription-based services, Foodie-Fi, a niche streaming platform offering exclusive food-related content, aims to leverage data to guide its business decisions. The challenge lies in analyzing and utilizing subscription-style digital data to address key questions such as customer retention, subscription growth, content preferences, and the impact of pricing models on revenue. By adopting a data-driven approach, Foodie-Fi seeks to optimize its offerings, improve customer experience, and sustain competitive advantage in the streaming industry.
+
+This case study has LOTS of questions - they are broken up by area of focus including:
+
+    - Customer Journey
+    - Data Analysis Questions
+    - Challenge Payment Question
+    - Outside The Box Questions
 ---------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------
 
 # (C) Here, I have analyzed the data and provided a solution using MySQL queries based on the case studies organized by Data In Motion.
 
-# SQL Case Study 1 - Tiny Shop Sales(Customer Order Analysis)
+# Tiny Shop Sales(Customer Order Analysis)
+
+![Tiny-Shop-Sales-624x624](https://github.com/user-attachments/assets/9fc08aeb-e4c7-4d6c-9dfb-5c51646fc424)
 
 Introduction:
 
@@ -140,7 +169,7 @@ By addressing these key business questions, the retail company can gain valuable
 
 ------------------------------------------------------------------------------------------------
 
-# SQL Case Study 2 - Human Resources
+# Human Resources
 
 Introduction:
 

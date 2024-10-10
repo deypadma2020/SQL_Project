@@ -1,4 +1,4 @@
-create database if not exists Challenge_1;
+create database if not exists car_showroom;
 
 use Challenge_1;
 
