@@ -117,7 +117,8 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 
 # Foodie-fi
 
-https://8weeksqlchallenge.com/images/case-study-designs/3.png
+![3](https://github.com/user-attachments/assets/c5f90e58-7b7b-43cb-a100-10f94a63210c)
+![Tiny-Shop-Sales-624x624](https://github.com/user-attachments/assets/432f90ad-3038-4dce-a4ba-a40dc2c5ae0f)
 
 Introduction:
 
@@ -170,6 +171,8 @@ By addressing these key business questions, the retail company can gain valuable
 ------------------------------------------------------------------------------------------------
 
 # Human Resources
+
+![Human-Resources-Analysis-624x624](https://github.com/user-attachments/assets/e7062cd6-b40d-4029-b178-798796a8fa8f)
 
 Introduction:
 
