@@ -1,3 +1,4 @@
+drop database if exists car_showroom;
 create database if not exists car_showroom;
 
 use Challenge_1;
