@@ -1,6 +1,6 @@
 create database if not exists finance;
 
-use Challenge_4;
+use finance;
 
 -- Create the Customers table
 CREATE TABLE Customers (
