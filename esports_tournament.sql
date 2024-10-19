@@ -1,6 +1,6 @@
 create database if not exists esports_tournament;
 
-use Challenge_2;
+use esports_tournaments;
 
 CREATE TABLE Teams (
 team_id INT PRIMARY KEY,
