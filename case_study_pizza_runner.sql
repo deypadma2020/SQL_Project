@@ -1,3 +1,4 @@
+drop databse if exists pizza_runner;
 create database if not exists pizza_runner;
 
 use pizza_runner;
