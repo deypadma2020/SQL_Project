@@ -137,6 +137,41 @@ This case study has LOTS of questions - they are broken up by area of focus incl
     - Data Analysis Questions
     - Challenge Payment Question
     - Outside The Box Questions
+
+------------------------------------------------------------------------------------------------
+
+# Data Bank
+
+![4](https://github.com/user-attachments/assets/6eee477a-8952-473b-990f-c7bdcc655fa5)
+
+Introduction:
+
+There is a new innovation in the financial industry called Neo-Banks: new aged digital only banks without physical branches.
+
+Danny thought that there should be some sort of intersection between these new age banks, cryptocurrency and the data world…so he decides to launch a new initiative - Data Bank!
+
+Data Bank runs just like any other digital bank - but it isn’t only for banking activities, they also have the world’s most secure distributed data storage platform!
+
+Customers are allocated cloud data storage limits which are directly linked to how much money they have in their accounts. There are a few interesting caveats that go with this business model, and this is where the Data Bank team need your help!
+
+The management team at Data Bank want to increase their total customer base - but also need some help tracking just how much data storage their customers will need.
+
+This case study is all about calculating metrics, growth and helping the business analyse their data in a smart way to better forecast and plan for their future developments!
+
+Problem Statement:
+
+The rise of Neo-Banks, which are entirely digital with no physical branches, presents an exciting intersection between finance, cryptocurrency, and data management. **Data Bank**, a new initiative, functions not only as a digital bank but also as the world’s most secure distributed data storage platform. In this unique model, customer cloud data storage is linked to the funds in their accounts.
+
+**Objective**: The management team at Data Bank aims to expand their customer base while efficiently tracking and forecasting their customers' future data storage needs. They require a robust system to calculate key metrics, predict growth, and analyze their data effectively to drive business strategy and improve operational planning.
+
+Your task is to assist the Data Bank team by designing and implementing SQL queries that will provide insights into customer behavior, storage usage trends, and growth forecasting, helping the company optimize resources and plan for future developments.
+
+This case study has LOTS of questions - they are broken up by area of focus including:
+
+    - Customer Nodes Exploration
+    - Customer Transactions
+    - Data Allocation Challenge
+    - Extra Challenge
 ---------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------
 
