@@ -1,7 +1,7 @@
 drop database if exists customer_insights;
 create database if not exists customer_insights;
 
-use Challenge_3;
+use customer_insights;
 
 CREATE TABLE country (
 country_id INT PRIMARY KEY,
