@@ -1,7 +1,7 @@
 drop database if exists marketing;
 create database if not exists marketing;
 
-use Challenge_6;
+use marketing;
 
 -- Create the table
 CREATE TABLE sustainable_clothing (
