@@ -1,6 +1,6 @@
 create database if not exists pub_pricing;
 
-use Challenge_5;
+use pub_pricing;
 
 drop table if exists pubs;
 
