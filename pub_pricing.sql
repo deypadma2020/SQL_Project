@@ -2,6 +2,8 @@ create database if not exists pub_pricing;
 
 use Challenge_5;
 
+drop table if exists pubs;
+
 -- Create the 'pubs' table
 CREATE TABLE pubs (
 pub_id INT PRIMARY KEY,
@@ -11,6 +13,9 @@ state VARCHAR(50),
 country VARCHAR(50)
 );
 --------------------
+
+drop table if exists beverages;
+
 -- Create the 'beverages' table
 CREATE TABLE beverages (
 beverage_id INT PRIMARY KEY,
@@ -20,6 +25,9 @@ alcohol_content FLOAT,
 price_per_unit DECIMAL(8, 2)
 );
 --------------------
+
+drop table if exists sales;
+
 -- Create the 'sales' table
 CREATE TABLE sales (
 sale_id INT PRIMARY KEY,
@@ -31,6 +39,9 @@ FOREIGN KEY (pub_id) REFERENCES pubs(pub_id),
 FOREIGN KEY (beverage_id) REFERENCES beverages(beverage_id)
 );
 --------------------
+
+drop table if exists ratings;
+
 -- Create the 'ratings' table 
 CREATE TABLE ratings ( 
 rating_id INT PRIMARY KEY, 
