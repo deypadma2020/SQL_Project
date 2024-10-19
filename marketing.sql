@@ -1,3 +1,4 @@
+drop database if exists marketing;
 create database if not exists marketing;
 
 use Challenge_6;
