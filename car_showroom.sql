@@ -1,7 +1,7 @@
 drop database if exists car_showroom;
 create database if not exists car_showroom;
 
-use Challenge_1;
+use car_showroom;
 
 CREATE TABLE if not exists cars (
 car_id INT PRIMARY KEY,
