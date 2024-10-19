@@ -2680,6 +2680,16 @@ VALUES
   ('1000', '2', '2020-03-26'),
   ('1000', '4', '2020-06-04');
   
+insert into subscriptions
+  (customer_id, plan_id, start_date)
+VALUES 
+  ('1001', '0', '2020-03-19'),
+  ('1001', '2', '2020-03-24'),
+  ('1001', '4', '2020-06-04'),
+  ('1001', '1', '2020-03-26');
+  
+
+  
 ----------------------------------------------------------------------------------------------------------
 select * from plans;
 select * from subscriptions;
@@ -2914,7 +2924,7 @@ order by avg_days;
 */
 with cte as(
 			select customer_id, plan_id, start_date, 
-            lead(plan_id, 1) over(partition by customer_id order by plan_id, start_date) as next_plan
+            lead(plan_id, 1) over(partition by customer_id order by start_date ) as next_plan
             from  subscriptions
 )
 select count(distinct cte.customer_id) as customer_count
@@ -3001,12 +3011,7 @@ order by customer_id, plan_id, payment_date;
 /*
 1. How would you calculate the rate of growth for Foodie-Fi?
 */
-select 
-    date_format(start_date, '%M %Y') as month_year,
-    count(*) as total_subscriptions
-from 
-    subscriptions
-group by 
-    month_year
-order by 
-    min(start_date);
+select date_format(start_date, '%M %Y') as month_year, count(*) as total_subscriptions
+from subscriptions
+group by month_year
+order by min(start_date);
