@@ -118,7 +118,6 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 # Foodie-fi
 
 ![3](https://github.com/user-attachments/assets/c5f90e58-7b7b-43cb-a100-10f94a63210c)
-![Tiny-Shop-Sales-624x624](https://github.com/user-attachments/assets/432f90ad-3038-4dce-a4ba-a40dc2c5ae0f)
 
 Introduction:
 
