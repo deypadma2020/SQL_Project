@@ -172,6 +172,31 @@ This case study has LOTS of questions - they are broken up by area of focus incl
     - Customer Transactions
     - Data Allocation Challenge
     - Extra Challenge
+
+------------------------------------------------------------------------------------------------
+
+# Data Mart
+
+![5](https://github.com/user-attachments/assets/7e02282c-42da-4691-a482-20f5bb404205)
+
+**Introduction:**
+
+In today’s market, sustainability has become a driving factor for consumers and businesses alike. Companies are increasingly adopting eco-friendly practices to meet consumer expectations and regulatory requirements. For Data Mart, an online supermarket specializing in fresh produce, a large-scale shift was introduced in June 2020, adopting sustainable packaging across the supply chain. Danny, Data Mart's founder, seeks to understand how this operational transformation has impacted sales performance across various business areas. By examining the effects of sustainable packaging on platform-specific, regional, and customer-segment sales, Danny aims to make informed decisions on future sustainability initiatives that align with customer preferences while minimizing any potential negative impact on sales.
+
+**Problem Statement:**
+
+The project aims to quantify the impact of Data Mart’s transition to sustainable packaging on its overall sales and specific business segments. This analysis will address three core business questions:
+
+1. **Quantifiable Impact:** What measurable effect has the shift to sustainable packaging had on Data Mart's sales performance since June 2020?
+2. **Affected Segments:** Which sales channels (platforms), regions, customer types, and product segments have been most impacted by this change?
+3. **Strategic Recommendations:** How can Data Mart effectively introduce similar sustainability updates in the future to continue promoting eco-friendly practices while minimizing any potential disruptions to sales?
+
+This analysis will provide actionable insights to guide Data Mart’s future sustainability strategies, ensuring alignment with customer expectations and maintaining positive sales momentum.
+
+This case study has LOTS of questions - they are broken up by area of focus including:
+
+    - weekly_sales
+
 ---------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------
 
