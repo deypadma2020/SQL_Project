@@ -197,6 +197,39 @@ This case study has LOTS of questions - they are broken up by area of focus incl
 
     - weekly_sales
 
+
+------------------------------------------------------------------------------------------------
+
+# Clique Bait
+
+![6](https://github.com/user-attachments/assets/400df6ec-18eb-4ae2-a64b-ccb3682f79fc)
+
+**Introduction:**
+
+Clique Bait is revolutionizing the seafood industry by blending data-driven insights with the traditional online seafood retail model. Founded by Danny, a former digital data analytics professional, Clique Bait aspires to deliver a seamless and efficient online seafood shopping experience. The company prides itself on using data to inform decisions, optimize operations, and deliver value to customers.
+
+As a data-driven organization, Clique Bait tracks customer behavior through its e-commerce platform. Analyzing these patterns allows the company to understand the performance of its sales funnel and improve user experiences. By identifying where customers drop off during their journey, Clique Bait aims to fine-tune its processes, increase conversions, and reinforce its position as a leading player in the seafood e-commerce industry.
+
+**Problem Statement:**
+
+Despite its innovative approach, Clique Bait is facing challenges in retaining potential customers throughout its online sales funnel. The exact stages where customer fallout occurs and the reasons behind these drop-offs are unclear.  
+
+To address this, the project seeks to:  
+
+1. **Analyze Funnel Fallout Rates**: Examine the dataset to identify stages in the customer journey (e.g., browsing, cart addition, checkout) with the highest dropout rates.  
+2. **Provide Insights**: Interpret the data to uncover potential reasons for these fallouts, such as usability issues, pricing concerns, or lack of engagement.  
+3. **Offer Solutions**: Propose creative and actionable strategies to reduce dropout rates, enhance user experience, and ultimately improve conversion rates for Clique Bait.  
+
+This project aligns with Danny’s vision of leveraging data analytics to optimize customer experiences and strengthen Clique Bait’s impact in the online seafood market.  
+
+This case study has LOTS of questions - they are broken up by area of focus including:
+
+    - Users
+    - Events
+    - Event Identifier
+    - Campaign Identifier
+    - Page Hierarchy
+
 ---------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------
 
