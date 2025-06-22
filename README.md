@@ -231,6 +231,38 @@ This case study has LOTS of questions - they are broken up by area of focus incl
     - Page Hierarchy
 
 ---------------------------------------------------------------------------------------------------------------------------------
+
+# Balanced Tree Clothing Co.
+
+![Image](https://github.com/user-attachments/assets/21456131-8477-4f04-ac99-3c9573e84eaf)
+
+**Introduction:**
+
+Balanced Tree Clothing Co. specializes in delivering a curated range of clothing and lifestyle products for the modern adventurer. Founded by Danny, an experienced retail leader, the company focuses on blending data-driven decisions with fashion trends to better serve its customers.
+
+As a forward-thinking organization, Balanced Tree collects detailed sales data across its product range. By analyzing this data, the company aims to strengthen merchandising decisions, optimize revenue, and enhance reporting for business stakeholders.
+
+**Problem Statement:**
+
+Despite its focus on quality and data, Balanced Tree is seeking help to better utilize its sales data for reporting and business improvement. Danny’s team needs to answer critical questions about product sales, customer purchasing behavior, and discount impacts to support better merchandising.
+
+This project focuses on:
+
+1. **Analyzing Sales Performance**: Track revenue, sales by category/segment, and identify high-performing products.
+2. **Understanding Discounts**: Measure the effect of discounts on sales and revenue.
+3. **Financial Reporting**: Summarize key findings in a report for leadership and merchandising teams.
+4. **Bonus Challenge**: Rebuild product profiles using hierarchy and pricing data to enrich analysis.
+
+This case study is designed to turn raw data into practical business insights that help Balanced Tree stay ahead in the competitive clothing market.
+
+**Case Study Areas:**
+
+* Product Sales
+* Product Hierarchy
+* Pricing Impact
+* Member vs Non-Member Analysis
+
+---------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------
 
 # (C) Here, I have analyzed the data and provided a solution using MySQL queries based on the case studies organized by Data In Motion.
