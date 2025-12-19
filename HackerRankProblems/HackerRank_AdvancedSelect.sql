@@ -59,3 +59,27 @@ select concat(
 from occupations
 group by occupation
 order by count(*), occupation;
+
+---
+
+/*
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. 
+The output should consist of four columns (Doctor, Professor, Singer, and Actor) in that specific order, with their respective names listed alphabetically under each column.
+
+Note: Print NULL when there are no more names corresponding to an occupation.
+*/
+with ranked as (
+    select name, occupation,
+    row_number() over (partition by occupation order by name) as rn
+    from occupations
+)
+select
+max(case when occupation = 'Doctor' then name end) as Doctor,
+max(case when occupation = 'Professor' then name end) as Professor,
+max(case when occupation = 'Singer' then name end) as Singer,
+max(case when occupation = 'Actor' then name end) as Actor
+from ranked
+group by rn
+order by rn;
+
+---
