@@ -113,3 +113,71 @@ order by n;
 -- order by b1.n;
 
 ---
+
+/*
+Problem: New Companies (Company Hierarchy)
+
+Amber's conglomerate corporation has acquired several new companies.
+Each company follows a hierarchical structure consisting of:
+Lead Managers, Senior Managers, Managers, and Employees.
+
+You are given the following tables:
+
+Company
+- company_code : STRING  -- unique code of the company
+- founder      : STRING  -- founder of the company
+
+Lead_Manager
+- lead_manager_code : STRING
+- company_code      : STRING
+
+Senior_Manager
+- senior_manager_code : STRING
+- lead_manager_code   : STRING
+- company_code        : STRING
+
+Manager
+- manager_code        : STRING
+- senior_manager_code : STRING
+- lead_manager_code   : STRING
+- company_code        : STRING
+
+Employee
+- employee_code       : STRING
+- manager_code        : STRING
+- senior_manager_code : STRING
+- lead_manager_code   : STRING
+- company_code        : STRING
+
+Task:
+Write a query to display the following for each company:
+- company_code
+- founder
+- total number of lead managers
+- total number of senior managers
+- total number of managers
+- total number of employees
+
+Output Requirements:
+- Count distinct codes at each level (tables may contain duplicate records)
+- Include all companies even if some hierarchy levels are missing
+- Order the result by company_code in ascending lexicographical order
+
+Note:
+- company_code is a STRING, not numeric
+- Example ordering: C_1, C_10, C_2
+*/
+select c.company_code, c.founder,
+count(distinct lm.lead_manager_code) as total_lead_managers,
+count(distinct sm.senior_manager_code) as total_senior_managers,
+count(distinct m.manager_code) as total_managers,
+count(distinct e.employee_code) as total_employees
+from company c
+left join lead_manager lm on c.company_code = lm.company_code
+left join senior_manager sm on c.company_code = sm.company_code
+left join manager m on c.company_code = m.company_code
+left join employee e on c.company_code = e.company_code
+group by c.company_code, c.founder
+order by c.company_code;
+
+---
