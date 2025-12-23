@@ -1,0 +1,22 @@
+/*
+Problem: Population Count in Cities
+
+You are given a table named CITY with the following structure:
+
+CITY
+- id           : NUMBER
+- name         : VARCHAR2(17)
+- countrycode  : VARCHAR2(3)
+- district     : VARCHAR2(20)
+- population   : NUMBER
+
+Task:
+Write a query to count the number of cities in the CITY table
+that have a population greater than 100,000.
+
+Output:
+- Return a single integer representing the count of such cities.
+*/
+select count(*)
+from city
+where population > 100000;
