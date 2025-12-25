@@ -31,3 +31,12 @@ from city
 where district = "California";
 
 ---
+
+/*
+Query the average population of all cities in CITY where District is California.
+*/
+select round(avg(population), 3) as avg_population
+from city
+where district = "California";
+
+---
