@@ -40,3 +40,11 @@ from city
 where district = "California";
 
 ---
+
+/*
+Query the average population for all cities in CITY, rounded down to the nearest integer.
+*/
+select round(avg(population), 0) as avg_population
+from city;
+
+---
