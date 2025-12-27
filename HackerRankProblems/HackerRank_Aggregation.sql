@@ -48,3 +48,12 @@ select round(avg(population), 0) as avg_population
 from city;
 
 ---
+
+/*
+Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+*/
+select sum(population) as sum_of_population
+from city
+where countrycode = "JPN";
+
+---
