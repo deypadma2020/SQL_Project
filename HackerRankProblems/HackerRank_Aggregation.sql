@@ -67,11 +67,34 @@ from city;
 ---
 
 /*
-Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, 
+but did not realize her keyboard's 0 key was broken until after completing the calculation. 
+She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
 
 Write a query calculating the amount of error (i.e.: actual - miscalculated average monthly salaries), and round it up to the next integer.
 */
 select ceil(avg(salary) - avg(replace(salary, '0', ''))) as error_amount
 from employees;
+
+---
+
+/*
+We define an employee's total earnings to be their monthly salary*months worked, 
+and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. 
+Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. 
+Then print these values as 2 space-separated integers.
+*/
+with earnings as (
+    select
+        months * salary as total_earnings,
+        max(months * salary) over () as global_max
+    from employee
+)
+select
+    total_earnings as max_total_earnings,
+    count(*) as employee_count
+from earnings
+where total_earnings = global_max
+group by total_earnings;
 
 ---
