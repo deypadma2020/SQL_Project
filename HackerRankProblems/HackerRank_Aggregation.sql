@@ -120,3 +120,12 @@ from station
 where lat_n>38.7880 and lat_n<137.2345;
 
 ---
+
+/*
+Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345. Truncate your answer to 4 decimal places.
+*/
+select truncate(max(lat_n), 4) as max_lat_n
+from station
+where lat_n<137.2345;
+
+---
