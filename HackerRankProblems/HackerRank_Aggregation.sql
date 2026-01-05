@@ -143,3 +143,12 @@ from station as s
 inner join max_lat as ml on s.lat_n = ml.max_lat_n;
 
 ---
+
+/*
+Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to 4 decimal places.
+*/
+select round(min(lat_n), 4) as small_lat_n
+from station
+where lat_n > 38.7780;
+
+---
