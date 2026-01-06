@@ -152,3 +152,17 @@ from station
 where lat_n > 38.7780;
 
 ---
+
+/*
+Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 38.7780. Round your answer to 4 decimal places.
+*/
+with min_lat_n as(
+    select min(lat_n) as small_lat_n
+    from station
+    where lat_n > 38.7780
+)
+select round(s.long_w, 4) as long_w
+from station s
+inner join min_lat_n as ml on s.lat_n = ml.small_lat_n;
+
+---
