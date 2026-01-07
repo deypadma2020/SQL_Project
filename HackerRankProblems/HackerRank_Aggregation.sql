@@ -166,3 +166,29 @@ from station s
 inner join min_lat_n as ml on s.lat_n = ml.small_lat_n;
 
 ---
+
+/*
+Consider two points on a 2D plane:
+
+P1(a, b):
+- a is the minimum value of northern latitude (lat_n) from the station table
+- b is the minimum value of western longitude (long_w) from the station table
+
+P2(c, d):
+- c is the maximum value of northern latitude (lat_n) from the station table
+- d is the maximum value of western longitude (long_w) from the station table
+
+Write a query to calculate the Manhattan distance between points P1 and P2 using the formula:
+|a - c| + |b - d|
+
+Round the final result to 4 decimal places.
+*/
+select
+    round(
+        abs(min(lat_n) - max(lat_n)) +
+        abs(min(long_w) - max(long_w))
+        , 4
+    ) as manhattan_distance
+from station;
+
+---
