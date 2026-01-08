@@ -192,3 +192,32 @@ select
 from station;
 
 ---
+
+/*
+Consider two points on a 2D plane:
+
+P1(a, c):
+- a is the minimum value of northern latitude (lat_n) from the station table
+- c is the minimum value of western longitude (long_w) from the station table
+
+P2(b, d):
+- b is the maximum value of northern latitude (lat_n) from the station table
+- d is the maximum value of western longitude (long_w) from the station table
+
+Write a query to calculate the Euclidean distance between points P1 and P2 using the formula:
+sqrt((a - b)^2 + (c - d)^2)
+
+Format the final result to display 4 decimal places.
+*/
+select
+    round(
+        sqrt(
+            power(max(lat_n) - min(lat_n), 2) +
+            power(max(long_w) - min(long_w), 2)
+        ),
+        4
+    ) as euclidean_distance
+from station;
+
+---
+
