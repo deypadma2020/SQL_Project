@@ -81,3 +81,125 @@ case
 end asc;
 
 ---
+
+/*
+Julia has finished conducting a coding contest and needs help assembling the leaderboard.
+
+You are given the following tables:
+
+hackers:
+- hacker_id (integer): the unique id of the hacker
+- name (string): the name of the hacker
+
+difficulty:
+- difficulty_level (integer): the difficulty level of a challenge
+- score (integer): the maximum score achievable for a challenge at that difficulty level
+
+challenges:
+- challenge_id (integer): the unique id of the challenge
+- hacker_id (integer): the id of the hacker who created the challenge
+- difficulty_level (integer): the difficulty level of the challenge
+
+submissions:
+- submission_id (integer): the unique id of the submission
+- hacker_id (integer): the id of the hacker who made the submission
+- challenge_id (integer): the id of the challenge for which the submission was made
+- score (integer): the score received for the submission
+
+A hacker is considered to have achieved a full score for a challenge if their submission score
+matches the maximum score for that challenge’s difficulty level.
+
+Write a query to print:
+- hacker_id
+- name
+
+Include only hackers who achieved full scores in more than one challenge.
+
+Sort the output:
+- first by the total number of challenges in which the hacker earned a full score, in descending order
+- if multiple hackers have the same count, sort them by hacker_id in ascending order
+*/
+/*
+Julia has finished conducting a coding contest and needs help assembling the leaderboard.
+
+You are given the following tables:
+
+hackers:
+- hacker_id (integer): the unique id of the hacker
+- name (string): the name of the hacker
+
+difficulty:
+- difficulty_level (integer): the difficulty level of a challenge
+- score (integer): the maximum score achievable for a challenge at that difficulty level
+
+challenges:
+- challenge_id (integer): the unique id of the challenge
+- hacker_id (integer): the id of the hacker who created the challenge
+- difficulty_level (integer): the difficulty level of the challenge
+
+submissions:
+- submission_id (integer): the unique id of the submission
+- hacker_id (integer): the id of the hacker who made the submission
+- challenge_id (integer): the id of the challenge for which the submission was made
+- score (integer): the score received for the submission
+
+A hacker is considered to have achieved a full score for a challenge if their submission score
+matches the maximum score for that challenge’s difficulty level.
+
+Write a query to print:
+- hacker_id
+- name
+
+Include only hackers who achieved full scores in more than one challenge.
+
+Sort the output:
+- first by the total number of challenges in which the hacker earned a full score, in descending order
+- if multiple hackers have the same count, sort them by hacker_id in ascending order
+*/
+/*
+Julia has finished conducting a coding contest and needs help assembling the leaderboard.
+
+You are given the following tables:
+
+hackers:
+- hacker_id (integer): the unique id of the hacker
+- name (string): the name of the hacker
+
+difficulty:
+- difficulty_level (integer): the difficulty level of a challenge
+- score (integer): the maximum score achievable for a challenge at that difficulty level
+
+challenges:
+- challenge_id (integer): the unique id of the challenge
+- hacker_id (integer): the id of the hacker who created the challenge
+- difficulty_level (integer): the difficulty level of the challenge
+
+submissions:
+- submission_id (integer): the unique id of the submission
+- hacker_id (integer): the id of the hacker who made the submission
+- challenge_id (integer): the id of the challenge for which the submission was made
+- score (integer): the score received for the submission
+
+A hacker is considered to have achieved a full score for a challenge if their submission score
+matches the maximum score for that challenge’s difficulty level.
+
+Write a query to print:
+- hacker_id
+- name
+
+Include only hackers who achieved full scores in more than one challenge.
+
+Sort the output:
+- first by the total number of challenges in which the hacker earned a full score, in descending order
+- if multiple hackers have the same count, sort them by hacker_id in ascending order
+*/
+select h.hacker_id, h.name
+from hackers h
+inner join submissions s on h.hacker_id = s.hacker_id
+inner join challenges c on s.challenge_id = c.challenge_id
+inner join difficulty d on c.difficulty_level = d.difficulty_level
+where s.score = d.score
+group by h.hacker_id, h.name having count(distinct s.challenge_id) > 1
+order by count(distinct s.challenge_id) desc, h.hacker_id asc;
+
+---
