@@ -203,3 +203,60 @@ group by h.hacker_id, h.name having count(distinct s.challenge_id) > 1
 order by count(distinct s.challenge_id) desc, h.hacker_id asc;
 
 ---
+
+/*
+Harry Potter and his friends are at Ollivander's, looking to replace Ron's broken wand.
+
+You are given the following tables containing data about the wands in Ollivander's inventory:
+
+wands:
+- id (integer): the unique id of the wand
+- code (integer): the code of the wand
+- coins_needed (integer): the number of gold galleons required to buy the wand
+- power (integer): the power of the wand (higher value indicates a more powerful wand)
+
+wands_property:
+- code (integer): the code of the wand
+- age (integer): the age of the wand
+- is_evil (integer): indicates whether the wand is evil
+  - 0 means the wand is not evil
+  - 1 means the wand is evil
+
+Each wand code maps to exactly one age.
+
+Write a query to print the following columns for all non-evil wands (is_evil = 0):
+- id
+- age
+- coins_needed
+- power
+
+For each combination of power and age, select the wand that requires the minimum number of coins_needed.
+
+Sort the result:
+- by power in descending order
+- if multiple wands have the same power, by age in descending order
+*/
+with wand_cost as (
+    select
+        w.id,
+        wp.age,
+        w.coins_needed,
+        w.`power`,
+        min(w.coins_needed) over (
+            partition by w.code, w.`power`
+        ) as min_coins
+    from wands w
+    join wands_property wp
+        on w.code = wp.code
+    where wp.is_evil = 0
+)
+select
+    id,
+    age,
+    coins_needed,
+    `power`
+from wand_cost
+where coins_needed = min_coins
+order by `power` desc, age desc;
+
+---
