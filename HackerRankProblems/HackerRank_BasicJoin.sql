@@ -260,3 +260,55 @@ where coins_needed = min_coins
 order by `power` desc, age desc;
 
 ---
+
+/*
+Julia asked her students to create coding challenges.
+
+You are given the following tables:
+
+hackers:
+- hacker_id (integer): the unique id of the hacker
+- name (string): the name of the hacker
+
+challenges:
+- challenge_id (integer): the unique id of the challenge
+- hacker_id (integer): the id of the student who created the challenge
+
+Write a query to print:
+- hacker_id
+- name
+- total number of challenges created by the student
+
+Rules:
+- Count the total number of challenges created by each student.
+- Sort the results by the total number of challenges in descending order.
+- If multiple students have the same number of challenges, sort them by hacker_id in ascending order.
+- If more than one student created the same number of challenges and that count is less than the maximum number of challenges created by any student, exclude those students from the result.
+*/
+SET NOCOUNT ON;
+with challenge_counts as (
+    select h.hacker_id, h.name, count(c.challenge_id) as total_challenges
+    from hackers h
+    left join challenges c on h.hacker_id = c.hacker_id
+    group by h.hacker_id, h.name
+),
+ranked_counts as (
+    select hacker_id, name, total_challenges,
+    count(*) over (partition by total_challenges) as same_count_cnt,
+    max(total_challenges) over () as max_challenges
+    from challenge_counts
+)
+select hacker_id, name, total_challenges
+from ranked_counts
+where same_count_cnt = 1
+or total_challenges = max_challenges
+order by total_challenges desc, hacker_id;
+
+/*
+Enter your query here.
+Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
+*/
+
+go
+
+---
