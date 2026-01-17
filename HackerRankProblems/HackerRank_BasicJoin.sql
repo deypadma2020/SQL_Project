@@ -312,3 +312,56 @@ Please append a semicolon ";" at the end of the query and enter your query in a 
 go
 
 ---
+
+/*
+Julia needs help calculating the final leaderboard for her coding contest.
+
+You are given the following tables:
+
+hackers:
+- hacker_id (integer): the unique id of the hacker
+- name (string): the name of the hacker
+
+submissions:
+- submission_id (integer): the unique id of the submission
+- hacker_id (integer): the id of the hacker who made the submission
+- challenge_id (integer): the id of the challenge for which the submission was made
+- score (integer): the score received for the submission
+
+The total score of a hacker is defined as the sum of their maximum score achieved
+for each challenge.
+
+Write a query to print:
+- hacker_id
+- name
+- total_score
+
+Rules:
+- Compute each hacker’s total_score by summing the highest score they achieved in each challenge.
+- Exclude hackers whose total_score is 0.
+- Sort the results by total_score in descending order.
+- If multiple hackers have the same total_score, sort them by hacker_id in ascending order.
+*/
+SET NOCOUNT ON;
+with max_scores as (
+    select hacker_id, challenge_id, max(score) as max_score
+    from submissions
+    group by hacker_id, challenge_id
+),
+total_scores as (
+    select hacker_id, sum(max_score) as total_score
+    from max_scores
+    group by hacker_id
+)
+select h.hacker_id, h.name, t.total_score
+from total_scores t
+inner join hackers h on h.hacker_id = t.hacker_id
+where t.total_score > 0
+order by t.total_score desc, h.hacker_id asc;
+
+/*
+Enter your query here.
+Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
+*/
+
+go
