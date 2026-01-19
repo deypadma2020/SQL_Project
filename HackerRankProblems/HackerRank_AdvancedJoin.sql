@@ -50,12 +50,52 @@ select project_start_date, project_end_date
 from project_ranges
 order by duration_days asc, project_start_date asc;
 
-/*
-Enter your query here.
-Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
-*/
-
 go
 
 ---
 
+/*
+You are given three tables: students, friends, and packages.
+
+students:
+- id (integer): the unique id of the student
+- name (string): the name of the student
+
+friends:
+- id (integer): the id of the student
+- friend_id (integer): the id of the student's only best friend
+
+packages:
+- id (integer): the id of the student
+- salary (float): the offered salary in thousands of dollars per month
+
+Write a query to print the names of students whose best friends were offered
+a higher salary than they were.
+
+Rules:
+- Compare each student’s salary with their best friend’s salary.
+- Include only those students whose best friend’s salary is greater than their own.
+- Order the result by the best friend’s salary in ascending order.
+*/
+SET NOCOUNT ON;
+with salary_map as (
+    select f.id as student_id, f.friend_id,
+    p1.salary as student_salary,
+    p2.salary as friend_salary
+    from friends f
+    inner join packages p1 on f.id = p1.id
+    inner join packages p2 on f.friend_id = p2.id
+),
+filtered as (
+    select s.name, sm.friend_salary
+    from salary_map sm
+    inner join students s on sm.student_id = s.id
+    where sm.friend_salary > sm.student_salary
+)
+select name
+from filtered
+order by friend_salary asc;
+
+go
+
+---
