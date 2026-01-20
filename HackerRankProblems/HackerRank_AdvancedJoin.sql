@@ -99,3 +99,41 @@ order by friend_salary asc;
 go
 
 ---
+
+/*
+You are given a table named functions with the following columns:
+
+functions:
+- x (integer)
+- y (integer)
+
+Two pairs (x1, y1) and (x2, y2) are said to be symmetric if:
+- x1 = y2
+- x2 = y1
+
+Write a query to find and print all such symmetric pairs.
+
+Rules:
+- Each symmetric pair should be listed only once.
+- Display only the rows where x <= y.
+- Sort the output in ascending order by the value of x.
+*/
+SET NOCOUNT ON;
+with cte as (
+    select x, y,
+    count(*) over (partition by x, y) as cnt
+    from functions
+),
+symmetric as (
+    select f1.x, f1.y
+    from cte f1
+    inner join cte f2 on f1.x = f2.y and f1.y = f2.x
+    where (f1.x < f1.y) or (f1.x = f1.y and f1.cnt > 1)
+)
+select distinct x, y
+from symmetric
+order by x;
+
+go
+
+---
