@@ -137,3 +137,86 @@ order by x;
 go
 
 ---
+
+/*
+Samantha interviews candidates from multiple colleges using coding contests.
+
+Each contest is created by a hacker and may be used to screen candidates from more than one college.
+However, each college conducts only one screening contest.
+
+You are given the following tables:
+
+1. contests
+   - contest_id: id of the contest
+   - hacker_id: id of the hacker who created the contest
+   - name: name of the hacker
+
+2. colleges
+   - college_id: id of the college
+   - contest_id: id of the contest used by the college
+
+3. challenges
+   - challenge_id: id of the challenge
+   - college_id: id of the college where the challenge was given
+
+4. view_stats
+   - challenge_id: id of the challenge
+   - total_views: total number of views for the challenge
+   - total_unique_views: total number of unique views for the challenge
+
+5. submission_stats
+   - challenge_id: id of the challenge
+   - total_submissions: total number of submissions for the challenge
+   - total_accepted_submissions: number of accepted submissions for the challenge
+
+Task:
+Write a query to display, for each contest:
+- contest_id
+- hacker_id
+- hacker name
+- sum of total_submissions
+- sum of total_accepted_submissions
+- sum of total_views
+- sum of total_unique_views
+
+Exclude contests where all four summed values are equal to 0.
+
+The output should be ordered by contest_id.
+*/
+SET NOCOUNT ON;
+/* CTE for aggregated submission statistics */
+with Aggregated_Submissions as (
+    select challenge_id, 
+    sum(total_submissions) as sum_submissions, 
+    sum(total_accepted_submissions) as sum_accepted_submissions
+    from Submission_Stats
+    group by challenge_id
+),
+/* CTE for aggregated view statistics */
+Aggregated_Views as (
+    select challenge_id, 
+    sum(total_views) as sum_views, 
+    sum(total_unique_views) as sum_unique_views
+    from View_Stats
+    group by challenge_id
+)
+select con.contest_id, con.hacker_id, con.name, 
+sum(asub.sum_submissions), 
+sum(asub.sum_accepted_submissions), 
+sum(aview.sum_views), 
+sum(aview.sum_unique_views)
+from Contests as con
+inner join Colleges as col on con.contest_id = col.contest_id
+inner join Challenges as cha on col.college_id = cha.college_id
+left join Aggregated_Submissions as asub on cha.challenge_id = asub.challenge_id
+left join Aggregated_Views as aview on cha.challenge_id = aview.challenge_id
+group by con.contest_id, con.hacker_id, con.name
+having (sum(asub.sum_submissions) + 
+        sum(asub.sum_accepted_submissions) + 
+        sum(aview.sum_views) + 
+        sum(aview.sum_unique_views)) > 0
+order by con.contest_id;
+
+go
+
+---
