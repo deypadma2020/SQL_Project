@@ -220,3 +220,81 @@ order by con.contest_id;
 go
 
 ---
+
+/*
+julia conducted a 15-day learning sql contest from march 01, 2016 to march 15, 2016.
+
+write a query to generate daily contest statistics starting from the first day of the contest.
+
+for each day, output:
+- the date
+- the total number of unique hackers who made at least one submission on that day
+- the hacker_id and name of the hacker who made the maximum number of submissions on that day
+
+if more than one hacker has the same maximum number of submissions for a day, select the hacker with the lowest hacker_id.
+
+the result must include one row per day of the contest and should be ordered by date in ascending order.
+
+table details:
+
+hackers
+- hacker_id (integer): unique id of the hacker
+- name (string): name of the hacker
+
+submissions
+- submission_date (date): date of the submission
+- submission_id (integer): unique id of the submission
+- hacker_id (integer): id of the hacker who made the submission
+- score (integer): score received for the submission
+*/
+SET NOCOUNT ON;
+with date_range as (
+    -- get unique list of dates in the contest
+    select distinct submission_date
+    from submissions
+),
+hacker_daily_counts as (
+    -- count submissions per hacker per day
+    select submission_date, hacker_id, 
+    count(submission_id) as total_subs
+    from submissions
+    group by submission_date, hacker_id
+),
+daily_ranks as (
+    -- find the hacker with max submissions for each day (tie-breaker: lowest id)
+    select submission_date, hacker_id,
+    row_number() over (partition by submission_date order by total_subs desc, hacker_id asc) as rnk
+    from hacker_daily_counts
+),
+hacker_loyalty as (
+    -- recursive cte to track hackers who submit every single day
+    -- base case: hackers who submitted on the first day
+    select submission_date, hacker_id
+    from hacker_daily_counts
+    where submission_date = '2016-03-01'
+    
+    union all
+    
+    -- recursive step: hackers who submitted today AND were in this list yesterday
+    select h.submission_date, h.hacker_id
+    from hacker_daily_counts h
+    inner join hacker_loyalty l on h.hacker_id = l.hacker_id
+    where h.submission_date = dateadd(day, 1, l.submission_date)
+),
+consistency_summary as (
+    -- count how many hackers maintained their streak for each specific day
+    select submission_date, 
+    count(distinct hacker_id) as consistent_count
+    from hacker_loyalty
+    group by submission_date
+)
+select cs.submission_date, cs.consistent_count, dr.hacker_id, h.name
+from consistency_summary cs
+inner join daily_ranks dr on cs.submission_date = dr.submission_date
+inner join hackers h on dr.hacker_id = h.hacker_id
+where dr.rnk = 1
+order by cs.submission_date;
+
+go
+
+---
