@@ -33,3 +33,37 @@ from pattern_cte;
 go
 
 ---
+
+/*
+p(r) represents a pattern drawn by julia using r rows.
+
+the pattern forms a right-angled triangle of asterisks (*),
+where the first row contains 1 asterisk,
+and each subsequent row contains one more asterisk than the previous row.
+
+example:
+p(5) is printed as:
+
+*
+* *
+* * *
+* * * *
+* * * * *
+
+write a query to print the pattern p(20),
+with each row on a new line and asterisks separated by a single space.
+*/
+SET NOCOUNT ON;
+with pattern as (
+    select 1 as n
+    union all
+    select n + 1 
+    from pattern 
+    where n < 20
+)
+select replicate('* ', n) 
+from pattern;
+
+go
+
+---
