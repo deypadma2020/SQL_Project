@@ -67,3 +67,33 @@ from pattern;
 go
 
 ---
+
+/*
+write a query to print all prime numbers less than or equal to 1000.
+
+the output should be printed on a single line.
+use the ampersand (&) character as the separator between numbers instead of a space.
+
+example:
+for prime numbers less than or equal to 10, the output should be:
+2&3&5&7
+*/
+SET NOCOUNT ON;
+with numbers as (
+    select 2 as n
+    union all
+    select n + 1 
+    from numbers 
+    where n < 1000
+),
+primes as (
+    select n1.n
+    from numbers n1
+    left join numbers n2 on n2.n < n1.n and n1.n % n2.n = 0
+    group by n1.n having count(n2.n) = 0
+)
+select string_agg(n, '&') within group (order by n)
+from primes
+option (maxrecursion 1000);
+
+go
