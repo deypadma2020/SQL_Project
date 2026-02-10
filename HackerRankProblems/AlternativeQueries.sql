@@ -97,3 +97,5 @@ from primes
 option (maxrecursion 1000);
 
 go
+
+---
