@@ -80,7 +80,7 @@ max(case when occupation = 'Singer' then name end) as Singer,
 max(case when occupation = 'Actor' then name end) as Actor
 from ranked
 group by rn
-order by rn;
+order by rn asc;
 
 ---
 
