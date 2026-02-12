@@ -206,9 +206,9 @@ sum(asub.sum_accepted_submissions),
 sum(aview.sum_views), 
 sum(aview.sum_unique_views)
 from Contests as con
-inner join Colleges as col on con.contest_id = col.contest_id
-inner join Challenges as cha on col.college_id = cha.college_id
-left join Aggregated_Submissions as asub on cha.challenge_id = asub.challenge_id
+inner join colleges as col on con.contest_id = col.contest_id
+inner join challenges as cha on col.college_id = cha.college_id
+left join aggregated_Submissions as asub on cha.challenge_id = asub.challenge_id
 left join Aggregated_Views as aview on cha.challenge_id = aview.challenge_id
 group by con.contest_id, con.hacker_id, con.name
 having (sum(asub.sum_submissions) + 
