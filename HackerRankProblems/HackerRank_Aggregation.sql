@@ -97,6 +97,7 @@ from earnings
 where total_earnings = global_max
 group by total_earnings;
 
+-- note: try to use temp table for reusability
 ---
 
 /*
