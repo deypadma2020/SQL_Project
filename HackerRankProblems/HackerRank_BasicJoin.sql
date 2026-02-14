@@ -302,7 +302,7 @@ select hacker_id, name, total_challenges
 from ranked_counts
 where same_count_cnt = 1
 or total_challenges = max_challenges
-order by total_challenges desc, hacker_id;
+order by total_challenges desc, hacker_id asc;
 
 /*
 Enter your query here.
