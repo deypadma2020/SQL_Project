@@ -3,7 +3,7 @@ Query all columns for all American cities in the CITY table with populations lar
 */
 select c.ID, c.NAME, c.COUNTRYCODE, c.DISTRICT, c.POPULATION
 from CITY c
-where c.COUNTRYCODE = 'USA' AND c.POPULATION > 100000;
+where c.COUNTRYCODE = 'USA' and c.POPULATION > 100000;
 
 ---
 
