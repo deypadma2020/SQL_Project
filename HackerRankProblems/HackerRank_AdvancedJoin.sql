@@ -48,7 +48,7 @@ project_ranges as (
 )
 select project_start_date, project_end_date
 from project_ranges
-order by duration_days asc, project_start_date asc;
+order by duration_days, project_start_date;
 
 go
 
