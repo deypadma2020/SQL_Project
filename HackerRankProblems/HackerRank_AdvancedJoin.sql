@@ -24,7 +24,7 @@ Rules:
 SET NOCOUNT ON;
 with ordered_tasks as (
     select task_id, start_date, end_date,
-    lag(end_date) over (order by start_date) as prev_end_date
+    lag(end_date) over (order by start_date) prev_end_date
     from projects
 ),
 project_flags as (
