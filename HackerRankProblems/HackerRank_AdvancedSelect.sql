@@ -58,7 +58,7 @@ select concat(
        )
 from occupations
 group by occupation
-order by count(*), occupation;
+order by count(*), occupation asc;
 
 ---
 
