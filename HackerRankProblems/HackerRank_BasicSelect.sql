@@ -82,7 +82,7 @@ Query the two cities in STATION with the shortest and longest CITY names, as wel
 with ranked as (
 select
 city,
-char_length(city) as length,
+char_length(city) length,
 row_number() over (order by char_length(city), city) as rn
 from station
 )
