@@ -17,7 +17,7 @@ that have a population greater than 100,000.
 Output:
 - Return a single integer representing the count of such cities.
 */
-select count(*)
+select count(*) as population_count
 from city
 where population > 100000;
 
