@@ -5,7 +5,7 @@ Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
 */
 select sum(ci.population) as total_population
 from city ci
-inner join country as co on ci.countrycode = co.code
+inner join country co on ci.countrycode = co.code
 where co.continent = "Asia";
 
 ---
