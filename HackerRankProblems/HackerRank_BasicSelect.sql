@@ -10,9 +10,9 @@ where c.COUNTRYCODE = 'USA' and c.POPULATION > 100000;
 /*
 Query the NAME field for all American cities in the CITY table with populations larger than 120000. The CountryCode for America is USA.
 */
-select name
-from city
-where countrycode = 'USA' and population > 120000;
+select c.name
+from city c
+where c.countrycode = 'USA' and c.population > 120000;
 
 ---
 
