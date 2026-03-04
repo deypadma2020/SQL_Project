@@ -37,7 +37,7 @@ project_flags as (
 ),
 project_groups as (
     select task_id, start_date, end_date,
-    sum(is_new_project) over (order by start_date) as project_id
+    sum(is_new_project) over (order by start_date) project_id
     from project_flags
 ),
 project_ranges as (
