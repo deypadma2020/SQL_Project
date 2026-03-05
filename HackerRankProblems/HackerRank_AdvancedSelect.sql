@@ -44,7 +44,7 @@ Note:
 */
 
 -- 1.
-select concat(name, "(", left(occupation, 1), ")") "name"
+select concat(name, "(", left(occupation, 1), ")") as "name"
 from occupations
 order by name;
 
