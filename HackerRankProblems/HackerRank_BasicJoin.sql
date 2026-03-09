@@ -194,7 +194,7 @@ Sort the output:
 - if multiple hackers have the same count, sort them by hacker_id in ascending order
 */
 select h.hacker_id, h.name
-from hackers h
+from hackers as h
 inner join submissions s on h.hacker_id = s.hacker_id
 inner join challenges c on s.challenge_id = c.challenge_id
 inner join difficulty d on c.difficulty_level = d.difficulty_level
