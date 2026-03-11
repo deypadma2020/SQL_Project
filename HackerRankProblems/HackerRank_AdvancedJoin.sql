@@ -121,7 +121,7 @@ Rules:
 SET NOCOUNT ON;
 with cte as (
     select x, y,
-    count(*) over (partition by x, y) as cnt
+    count(*) over (partition by x, y) cnt
     from functions
 ),
 symmetric as (
