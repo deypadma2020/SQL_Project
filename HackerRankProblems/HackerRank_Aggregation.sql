@@ -228,7 +228,7 @@ Query the median of the Northern Latitudes (LAT_N) from STATION and round your a
 */
 with ordered_latitudes as (
     select lat_n,
-        row_number() over (order by lat_n) as rn,
+        row_number() over (order by lat_n) rn,
         count(*) over () as total_rows
         from station
 )
