@@ -70,7 +70,7 @@ Note: Print NULL when there are no more names corresponding to an occupation.
 */
 with ranked as (
     select name, occupation,
-    row_number() over (partition by occupation order by name) as rn
+    row_number() over (partition by occupation order by name) rn
     from occupations
 )
 select
