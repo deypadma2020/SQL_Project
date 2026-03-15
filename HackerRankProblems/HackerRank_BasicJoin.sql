@@ -193,7 +193,7 @@ Sort the output:
 - first by the total number of challenges in which the hacker earned a full score, in descending order
 - if multiple hackers have the same count, sort them by hacker_id in ascending order
 */
-select h.hacker_id, h.name
+select h.hacker_id, h.name as name
 from hackers as h
 inner join submissions s on h.hacker_id = s.hacker_id
 inner join challenges c on s.challenge_id = c.challenge_id
