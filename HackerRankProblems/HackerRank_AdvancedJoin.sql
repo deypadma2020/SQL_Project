@@ -289,7 +289,7 @@ consistency_summary as (
     group by submission_date
 )
 select cs.submission_date, cs.consistent_count, dr.hacker_id, h.name
-from consistency_summary cs
+from consistency_summary as cs
 inner join daily_ranks dr on cs.submission_date = dr.submission_date
 inner join hackers h on dr.hacker_id = h.hacker_id
 where dr.rnk = 1
