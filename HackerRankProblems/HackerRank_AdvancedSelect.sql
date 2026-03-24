@@ -12,7 +12,7 @@ case
     when ((a + b) > c and (a + c) > b and (c + b) > a) and (a=b or b=c or c=a) then "Isosceles"
     when ((a + b) > c and (a + c) > b and (c + b) > a) and (a<>b and b<>c and c<>a) then "Scalene" 
     else "Not A Triangle"
-end as types_of_triangle
+end types_of_triangle
 from triangles;
 
 ---
