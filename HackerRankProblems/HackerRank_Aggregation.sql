@@ -18,8 +18,8 @@ Output:
 - Return a single integer representing the count of such cities.
 */
 select count(*) as population_count
-from city
-where population > 100000;
+from city as c
+where c.population > 100000;
 
 ---
 
